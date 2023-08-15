@@ -5,6 +5,8 @@ from telegram.ext import Updater, CommandHandler, CallbackContext
 
 NVD_API_URL = "https://services.nvd.nist.gov/rest/json/cves/1.0"
 EXPLOIT_DB_API_URL = "https://api.exploit-db.com/search"
+#И вот не понятно, портал закрыли или работает только платно
+#VULN_DB_API_URL = "https://vulndb.com/?api" 
 TELEGRAM_TOKEN = "YOUR_TELEGRAM_TOKEN"
 API_KEY = "YOUR_API_KEY"
 
@@ -61,10 +63,12 @@ def start_bot():
 user_keywords = {}
 
 
-def check_vulnerability_keywords(item, keywords):
+def check_vulnerability_keywords(item, keywords):    
     for keyword in keywords:
         if keyword.lower() in item.lower():
             return True
+
+            
     return False
 
 
